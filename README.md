@@ -153,7 +153,7 @@ export default client
 3. Install package for hashing password
 ```bash 
 $ npm i bcrypt
-$ npm i -d @types/client
+$ npm i -D @types/bcrypt
 ```
 
 3. Install package for auth (next-auth)

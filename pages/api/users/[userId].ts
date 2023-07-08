@@ -5,7 +5,7 @@ export default async function hanlder(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if (req.method !== "POST") {
+  if (req.method !== "GET") {
     return res.status(405).end();
   }
   try {

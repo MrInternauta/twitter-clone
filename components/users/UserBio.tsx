@@ -8,6 +8,7 @@ import { format } from "date-fns";
 import useCurrentUser from "@/hooks/useCurrentUser";
 import Button from "../Button";
 import { BiCalendar } from "react-icons/bi";
+import useUpdateModal from "@/hooks/useUpdateModal";
 interface UserHeroProps {
   userId: string;
 }
@@ -15,7 +16,7 @@ interface UserHeroProps {
 const UserBio: React.FC<UserHeroProps> = ({ userId }) => {
   const { data: fetchedUser, isLoading } = useUser(userId);
   const { data: currentUser } = useCurrentUser();
-
+  const updateModal  = useUpdateModal();
   const createdAt = useMemo(() => {
     if (!fetchedUser?.createdAt) {
       return null;
@@ -27,7 +28,7 @@ const UserBio: React.FC<UserHeroProps> = ({ userId }) => {
     <div className="border-b-[1px] border-neutral-800 pb-4">
       <div className="flex justify-end p-2">
         {currentUser?.id === userId ? (
-          <Button secondary label="Edit" onClick={() => {}} />
+          <Button secondary label="Edit" onClick={updateModal.onOpen} />
         ) : (
           <Button secondary label="Follow" onClick={() => {}} />
         )}

@@ -4,8 +4,6 @@ import Avatar from "../Avatar";
 
 export const FollowBar = () => {
   const { data: users = [] } = useUsers();
-  console.log(users);
-
   if (!users.length) {
     return null;
   }

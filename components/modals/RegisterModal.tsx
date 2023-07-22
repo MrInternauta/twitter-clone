@@ -34,7 +34,7 @@ export const RegisterModal = () => {
       await signIn("credentials", {
         email,
         password,
-        callbackUrl: process.env.NEXTAUTH_APP_URL,
+        callbackUrl: process.env.NEXTAUTH_URL,
       });
       registerModal.onClose();
     } catch (error) {

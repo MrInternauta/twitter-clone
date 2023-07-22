@@ -53,7 +53,7 @@ export const Sidebar = () => {
             <SidebarItem
               onClick={() =>
                 signOut({
-                  callbackUrl: process.env.NEXTAUTH_APP_URL,
+                  callbackUrl: process.env.NEXTAUTH_URL,
                 })
               }
               label={"Logout"}

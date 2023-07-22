@@ -27,6 +27,7 @@ export const LoginModal = () => {
       await signIn("credentials", {
         email,
         password,
+        callbackUrl: process.env.NEXTAUTH_APP_URL,
       });
       loginModal.onClose();
     } catch (error) {

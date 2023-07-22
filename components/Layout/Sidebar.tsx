@@ -51,7 +51,11 @@ export const Sidebar = () => {
           ))}
           {currentUser && (
             <SidebarItem
-              onClick={() => signOut()}
+              onClick={() =>
+                signOut({
+                  callbackUrl: process.env.NEXTAUTH_APP_URL,
+                })
+              }
               label={"Logout"}
               icon={BiLogOut}
             />

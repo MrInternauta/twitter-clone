@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
+      - npm install
+  build:
+    commands:
+      - echo build process started now
+      - npm run dev
+  post_build:
+    commands:
+      - echo build process finished

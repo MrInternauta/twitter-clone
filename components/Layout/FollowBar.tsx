@@ -1,7 +1,6 @@
 import useUsers from "@/hooks/useUsers";
 import React from "react";
 import Avatar from "../Avatar";
-
 export const FollowBar = () => {
   const { data: users = [] } = useUsers();
   if (!users.length) {

@@ -10,13 +10,14 @@ import Button from "../Button";
 import { BiCalendar } from "react-icons/bi";
 import useUpdateModal from "@/hooks/useUpdateModal";
 import useFollow from "@/hooks/useFollow";
+import { useEffect } from "react";
 interface UserHeroProps {
   userId: string;
 }
 
 const UserBio: React.FC<UserHeroProps> = ({ userId }) => {
   const { data: fetchedUser, isLoading } = useUser(userId);
-  const { data: currentUser } = useCurrentUser();  
+  const { data: currentUser } = useCurrentUser();
   const { isFollowing, toggleFollow } = useFollow(userId);
   const updateModal = useUpdateModal();
   const createdAt = useMemo(() => {
@@ -32,7 +33,12 @@ const UserBio: React.FC<UserHeroProps> = ({ userId }) => {
         {currentUser?.id === userId ? (
           <Button secondary label="Edit" onClick={updateModal.onOpen} />
         ) : (
-          <Button secondary={!isFollowing} outline={isFollowing} label={isFollowing ? "Unfollow": "Follow"} onClick={toggleFollow} />
+          <Button
+            secondary={!isFollowing}
+            outline={isFollowing}
+            label={isFollowing ? "Unfollow" : "Follow"}
+            onClick={toggleFollow}
+          />
         )}
       </div>
       <div className="mt-8 px-4">
@@ -65,3 +71,4 @@ const UserBio: React.FC<UserHeroProps> = ({ userId }) => {
   );
 };
 export default UserBio;
+
